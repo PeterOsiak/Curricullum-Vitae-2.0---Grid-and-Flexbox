@@ -1,0 +1,484 @@
+/*******************
+MEDIA QUERIES
+*******************/
+
+$bp-largest: 81.25em; //1360px / 16 = 75rem
+$bp-large: 75em; //1100px / 16 
+$bp-medium: 66em; //1000px / 16
+$bp-smaller-medium: 60em; // 960px / 16
+$bp-small: 56.25em; //900px / 16 
+$bp-smaller: 45em; //700 / 16 
+$bp-smaller-small: 30em; //480 / 16 
+$bp-smallest: 25em; //480 / 16 
+
+
+/*******************
+GENERAL SETTINGS
+*******************/
+:root {
+    --background-color-1: #0b124d;
+    --background-color-2: #243859;
+    --color-main-dark: #04082e;
+    --color-main-light: #f4f4f4;
+    --font-color-light: #f2f2f2;
+    --font-color-dark: #050b42;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit; }
+
+html {
+    background-image: linear-gradient(to right bottom, var(--background-color-1), var(--background-color-2));
+    box-sizing: border-box;
+    font-size: 87.5%;
+    
+    @media only screen and (max-width: $bp-small) {
+        font-size: 81.25%;
+    }
+    
+    @media only screen and (max-width: $bp-smaller) {
+        font-size: 92.5%;
+    }
+    
+    @media only screen and (max-width: $bp-smaller-small) {
+        font-size: 87.5%;
+    }
+}
+
+/*******************
+COMMON SETTINGS
+*******************/
+
+a {
+  text-decoration: none;
+  color: rgb(6,69,173);
+  outline: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  text-transform: uppercase;
+  margin: 0;
+    
+    @media only screen and (max-width: $bp-smaller-medium) {
+        text-align: center;
+    }
+}
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: .4rem;
+    
+    @media only screen and (max-width: $bp-smaller) {
+         font-size: 2.7rem;
+         letter-spacing: .3rem;
+    }
+    
+    @media only screen and (max-width: $bp-smallest) {
+         font-size: 2.3rem;
+         letter-spacing: .3rem;
+    }
+}
+
+h3 {
+    color: #050b42;
+    margin-bottom: .7rem;
+}
+
+h5 {
+    font-weight: 300;
+}
+
+h5, h6 {
+    font-size: 87.5%;
+    
+    @media only screen and (max-width: $bp-smaller) {
+        font-size: 92.5%;
+    }
+}
+
+h6 {
+    color: var(--font-color-dark);
+}
+
+footer {
+  text-transform: uppercase;
+}
+
+ul { line-height: 2rem;
+    margin: 1.2rem auto;
+    
+    @media only screen and (max-width: $bp-smaller-medium) {
+        padding: 0 1.2rem;
+    }
+}
+
+li { list-style: none;};
+
+footer {letter-spacing: .2rem; }
+
+.container {
+    background-color: #f9f9f9;
+    box-shadow: 0 1rem 4rem rgba(0,0,0, .2);
+    margin: 4rem auto;
+    max-width: 75rem;
+    line-height: 1.8rem;
+    display: grid;
+    
+    @media only screen and (max-width: $bp-large) {
+          margin: 0 auto;
+    }
+}
+
+img {
+    margin-right: 1.2rem;
+    max-width: 1.7rem;
+    height: auto;
+    
+    @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+    }
+}
+
+/*******************
+HEADER
+*******************/
+.header {
+  display: grid;
+  grid-template-rows: 1fr 12rem;
+  grid-template-columns: 19rem 1fr;
+  grid-column-gap: 3rem;
+  
+  background-color: var(--color-main-dark);
+  color: #fff;
+  height: 40vh;
+  padding: 3rem 3rem 0 3rem;
+  align-items: center;
+    align-content:space-around;
+    
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, minmax(min-content, 11rem));
+        padding: 4rem 3rem 1rem 3rem;
+      }
+    
+     @media only screen and (max-width: $bp-smaller) {
+         padding: 2rem;
+    }
+  
+  &__img {
+      background-image: url(../../CONTENT/img/me.png);
+      background-position: center;
+      background-size: cover;
+      border: 1px solid var(--color-main-dark);
+      border-radius: 50%;
+      height: 17vw;
+      width: 17vw;
+      max-width: 17rem;
+      max-height: 17rem;
+      grid-row: 2 / -1 ;
+      z-index: 3;
+      transform: translateY(5rem);
+      justify-self: center;
+      
+      @media only screen and (max-width: $bp-largest) {
+          height: 24vw;
+          width: 24vw;
+      }
+      
+      @media only screen and (max-width: $bp-medium) {
+          grid-row: 1 / 1;
+          transform: none;
+      }
+  }
+  
+  &__title {
+      grid-row: 2 /2;
+      display: grid;
+      align-self: flex-end;
+      justify-content: flex-start;
+      margin-bottom: 1rem;
+      margin-left: 1.5rem;
+      
+      @media only screen and (max-width: $bp-medium) {
+          margin: 0 auto;
+          justify-content: center;
+          text-align: center;
+      }
+  }
+    
+    &__title h3 {
+        color: var(--font-color);
+        font-weight: 400;
+        margin-top: 1rem;
+        
+        @media only screen and (max-width: $bp-smaller) {
+                margin-bottom: 0;
+            }
+    }
+}
+
+/*******************
+CONTENT
+*******************/
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, min-content);
+  
+  /*** ABOUT ***/
+    
+    &__about {
+        grid-column: 2 / 4;
+        padding: .5rem 1.5rem; //common with experience
+        
+        @media only screen and (max-width: $bp-smaller-medium) {
+            grid-column: 1 / -1;
+            grid-row: 1 / 2;
+            padding: 1.5rem 2rem 0 2rem;
+        }
+        
+        &::after {
+            border-radius:5px;
+            display: block;
+            height: 2px;
+            width: 80%;
+            background-color: var(--background-color-2);
+            content: " ";
+            margin: 1rem auto;
+            
+            @media only screen and (max-width: $bp-smaller-medium) {
+                margin: 2rem auto;
+                width: 50%;
+            }
+        }
+        
+        &--list {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        
+        &--list::before {
+            content: "";
+            display: inline-block;
+            height: 1rem;
+            width: 1rem;
+            margin-right: .9rem;
+            background-image: url(../../content/img/svg/chevron-thin-right.svg);
+            background-size: cover;
+            }
+  }
+  
+  /*** SIDEBAR ***/
+  
+  &__sidebar {
+      border-right: 1px solid var(--color-main-dark);
+      display: grid;
+      background-color: var(--color-main-light);
+      color: var(--font-color-dark);
+      grid-template-rows: repeat(4, min-content);
+      grid-row: 1 / 4;
+      padding: 7rem 1.5rem 0 1.5rem;
+      
+      @media only screen and (max-width: $bp-medium) {
+          padding: .5rem 1.5rem 0 1.5rem;
+      }
+      
+      @media only screen and (max-width: $bp-smaller-medium) {
+          border: none;
+          background-color: #f9f9f9;
+          padding: 0 3.5rem;
+          grid-row: 3 / 4;
+          grid-column: 1 / -1;
+      }
+      
+      @media only screen and (max-width: $bp-small) {
+//          grid-column: 1 / -1;
+//          grid-row: 3 / 4;
+//          text-align: center;
+      }
+        
+    &--contact {
+    grid-column: 1/1;
+    }
+      
+      &--list {
+          @media only screen and (max-width: $bp-smaller-medium) {
+              display: flex;
+              flex-wrap: wrap;
+              padding: 0;
+              justify-content: center;
+          }
+      }
+      
+      &--links {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          line-height: 2.2rem;
+          
+          @media only screen and (max-width: $bp-smaller-medium) {
+              flex-direction: column;
+              flex-basis: 14rem;
+              margin: .5rem;
+          }
+      }
+    
+    &--skills,
+    &--software,
+    &--languages {
+      text-transform: uppercase;
+    }
+    
+    &--skills,
+    &--software,
+    &--languages,
+    &--contact {
+      // font-size: 1.2rem;
+      line-height: 2.25rem;
+    }
+    
+    &--contact:after,
+    &--skills:after,
+    &--software:after {
+      border-radius: 5px;
+      display: block;
+      height: 1px;
+      width: 80%;
+      background-color: var(--color-main-dark);
+      content: " ";
+      margin: 1rem auto;
+    }
+        
+    &--languages:after {
+        @media only screen and (max-width: $bp-smaller-medium) {
+            border-radius: 5px;
+            display: block;
+            height: 2px;
+            width: 50%;
+            background-color: var(--background-color-2);
+            content: " ";
+            margin: 2rem auto;
+            }
+    }
+    
+     &--skills {
+    grid-column: 1/1;
+    
+    }
+    
+     &--software {
+    grid-column: 1/1;
+    }
+  }
+  
+  /* EXPERIENCE */
+  
+  &__experience {
+    display: grid;
+    grid-column: 2 / -1;
+    grid-template-rows: repeat(3, min-content);
+      
+      @media only screen and (max-width: $bp-smaller-medium) {
+          grid-column: 1 / -1;
+          grid-row: 2 / 3;
+          padding: 0 2rem;
+      }
+    
+    &--1,
+    &--2,
+    &--3,
+    &--4 {
+      padding: 0rem 1.5rem;
+    }
+    
+    &--1:after,
+    &--2:after,
+    &--3:after,
+    &--4:after {
+     border-radius: 5px;
+     display: block;
+     height: 1px;
+     width: 80%;
+     background-color: var(--color-main-dark);
+     content: " ";
+     margin: 1rem auto;
+        
+        @media only screen and (max-width: $bp-smaller-medium) {
+              margin: 2rem auto;
+          }
+    }
+      
+      &--h5 {
+        display: flex;
+        justify-content: space-between;
+          
+          @media only screen and (max-width: $bp-smaller-medium) {
+              justify-content: space-around;
+              }
+        }
+  }
+  
+    &__education {
+      padding: 1rem 1.5rem; //common with experience
+      
+      display: grid;
+      grid-column: 2 / -1;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, min-content);
+      grid-column-gap: 1rem;
+        
+        @media only screen and (max-width: $bp-smaller-medium) {
+            grid-column: 1 / -1;
+            padding: 1rem 3.5rem;
+            text-align: center;
+        }
+        
+        @media only screen and (max-width: $bp-smaller) {
+            grid-template-columns: 1fr;
+            grid-row-gap: 2rem;
+        }
+      
+      &--h3 {
+        grid-column: 1 / -1;
+        margin-bottom: 1.2rem;
+        margin-left: 0;
+          
+          @media only screen and (max-width: $bp-smaller-medium) {
+              text-align: left;
+              margin-bottom: 2rem;
+              text-align: center;
+          }
+          
+           @media only screen and (max-width: $bp-smaller) {
+              margin-bottom: 0;
+          }
+          
+        }
+    }
+}
+
+.footer {
+    background-color: var(--color-main-dark);
+    color: var(--font-color-light);
+    display: flex;
+    height: 4rem;
+    padding: 1rem 2rem;
+    
+    @media only screen and (max-width: $bp-smaller-medium) {
+          margin-top: 1.5rem;
+      }
+}
+
+
