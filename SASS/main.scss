@@ -22,6 +22,7 @@ GENERAL SETTINGS
     --color-main-light: #f4f4f4;
     --font-color-light: #f2f2f2;
     --font-color-dark: #050b42;
+    --link-color: #c41765;
 }
 
 body {
@@ -64,6 +65,18 @@ a {
   text-decoration: none;
   color: rgb(6,69,173);
   outline: none;
+    transition: all .2s;
+}
+
+a:active,
+a:link {
+    color: var(--background-color-2);
+}
+
+a:hover,
+a:visited {
+    color: var(--link-color);
+    transform: translateX(.2rem);
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -80,12 +93,12 @@ h1 {
     letter-spacing: .4rem;
     
     @media only screen and (max-width: $bp-smaller) {
-         font-size: 2.7rem;
+         font-size: 2.3rem;
          letter-spacing: .3rem;
     }
     
     @media only screen and (max-width: $bp-smallest) {
-         font-size: 2.3rem;
+         font-size: 2.1rem;
          letter-spacing: .3rem;
     }
 }
@@ -97,9 +110,14 @@ h3 {
 
 h5 {
     font-weight: 300;
+    font-size: 87.5%;
+    
+    @media only screen and (max-width: $bp-smaller) {
+        font-size: 78.50%;
+    }
 }
 
-h5, h6 {
+h6 {
     font-size: 87.5%;
     
     @media only screen and (max-width: $bp-smaller) {
@@ -108,7 +126,7 @@ h5, h6 {
 }
 
 h6 {
-    color: var(--font-color-dark);
+    
 }
 
 footer {
@@ -119,7 +137,7 @@ ul { line-height: 2rem;
     margin: 1.2rem auto;
     
     @media only screen and (max-width: $bp-smaller-medium) {
-        padding: 0 1.2rem;
+        padding: 0 .9rem;
     }
 }
 
@@ -168,8 +186,8 @@ HEADER
     
     @media only screen and (max-width: $bp-medium) {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, minmax(min-content, 11rem));
-        padding: 4rem 3rem 1rem 3rem;
+        grid-template-rows: repeat(2, min-content);
+        padding: 2rem;
       }
     
      @media only screen and (max-width: $bp-smaller) {
@@ -194,11 +212,22 @@ HEADER
       @media only screen and (max-width: $bp-largest) {
           height: 24vw;
           width: 24vw;
+          margin-bottom: 1.5rem;
       }
       
       @media only screen and (max-width: $bp-medium) {
           grid-row: 1 / 1;
           transform: none;
+      }
+      
+      @media only screen and (max-width: $bp-smaller) {
+          height: 29vw;
+          width: 29vw;
+      }
+      
+      @media only screen and (max-width: $bp-smaller-small) {
+          height: 32vw;
+          width: 32vw;
       }
   }
   
@@ -224,6 +253,11 @@ HEADER
         
         @media only screen and (max-width: $bp-smaller) {
                 margin-bottom: 0;
+                margin-top: .3rem;
+            }
+        
+        @media only screen and (max-width: $bp-smallest) {
+                font-size: 1rem;
             }
     }
 }
@@ -277,6 +311,8 @@ CONTENT
             margin-right: .9rem;
             background-image: url(../../content/img/svg/chevron-thin-right.svg);
             background-size: cover;
+            padding: 0 .2rem;
+            
             }
   }
   
@@ -332,6 +368,7 @@ CONTENT
               flex-direction: column;
               flex-basis: 14rem;
               margin: .5rem;
+              text-align: center;
           }
       }
     
@@ -401,6 +438,10 @@ CONTENT
     &--3,
     &--4 {
       padding: 0rem 1.5rem;
+        
+        @media only screen and (max-width: $bp-smaller-small) {
+            padding: 0;
+        }
     }
     
     &--1:after,
@@ -476,9 +517,14 @@ CONTENT
     height: 4rem;
     padding: 1rem 2rem;
     
+    &__link {
+        color: #f9f9f9;
+    }
+    
     @media only screen and (max-width: $bp-smaller-medium) {
           margin-top: 1.5rem;
       }
+    
 }
 
 
